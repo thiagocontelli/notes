@@ -3,7 +3,9 @@ package com.thiagocontelli.notes
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.thiagocontelli.notes.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
