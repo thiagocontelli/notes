@@ -6,21 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.thiagocontelli.notes.R
 import com.thiagocontelli.notes.adapters.NotesAdapter
 import com.thiagocontelli.notes.databinding.FragmentHomeBinding
-import com.thiagocontelli.notes.mocks.noteListMock
+import com.thiagocontelli.notes.viewmodels.HomeViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var notesAdapter: NotesAdapter
+
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +44,11 @@ class HomeFragment : Fragment() {
 
         prepareNotesRecyclerView()
 
-        onClickNoteCard()
+        viewModel.getAllNotes() { notes ->
+            notesAdapter.setNotes(notes)
+        }
 
-        notesAdapter.setNotes(noteListMock)
+        onClickNoteCard()
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)

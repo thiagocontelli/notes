@@ -13,8 +13,8 @@ interface NoteDao {
     suspend fun insert(note: Note)
 
     @Delete
-    fun delete(note: Note)
+    suspend fun delete(note: Note)
 
     @Query("SELECT * FROM notes")
-    fun listAll(): List<Note>
+    suspend fun listAll(): List<Note>
 }
