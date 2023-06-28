@@ -17,4 +17,12 @@ class NoteFragment : Fragment() {
         _binding = FragmentNoteBinding.inflate(inflater, container, false)
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.titleTextView.text = arguments?.getString("title")
+        binding.createdAtTextView.text = arguments?.getString("createdAt")
+        binding.contentTextView.text = arguments?.getString("content")
+    }
 }

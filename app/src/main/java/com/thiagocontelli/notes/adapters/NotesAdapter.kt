@@ -11,6 +11,8 @@ class NotesAdapter : Adapter<NotesAdapter.NotesViewHolder>() {
 
     private var notes: List<Note> = emptyList()
 
+    lateinit var onClick: (Note) -> Unit
+
     fun setNotes(notes: List<Note>) {
         this.notes = notes
         notifyDataSetChanged()
@@ -27,6 +29,10 @@ class NotesAdapter : Adapter<NotesAdapter.NotesViewHolder>() {
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         holder.binding.noteTitle.text = notes[position].title
         holder.binding.noteContent.text = notes[position].content
+
+        holder.binding.noteCardView.setOnClickListener {
+            onClick.invoke(notes[position])
+        }
     }
 
     override fun getItemCount(): Int {
