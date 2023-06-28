@@ -15,8 +15,6 @@ import com.thiagocontelli.notes.adapters.NotesAdapter
 import com.thiagocontelli.notes.databinding.FragmentHomeBinding
 import com.thiagocontelli.notes.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -61,7 +59,7 @@ class HomeFragment : Fragment() {
                 "id" to it.id,
                 "title" to it.title,
                 "content" to it.content,
-                "createdAt" to it.createdAt.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT))
+                "createdAt" to it.createdAt.toString()
             )
             findNavController().navigate(R.id.action_homeFragment_to_noteFragment, bundle)
         }
