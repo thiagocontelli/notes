@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.thiagocontelli.notes.R
 import com.thiagocontelli.notes.adapters.NotesAdapter
 import com.thiagocontelli.notes.databinding.FragmentHomeBinding
 import com.thiagocontelli.notes.mocks.noteListMock
@@ -35,6 +37,10 @@ class HomeFragment : Fragment() {
         prepareNotesRecyclerView()
 
         notesAdapter.setNotes(noteListMock)
+
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_addNoteFragment)
+        }
     }
 
     private fun prepareNotesRecyclerView() {
