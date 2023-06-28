@@ -1,20 +1,20 @@
-package com.thiagocontelli.notes
+package com.thiagocontelli.notes.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.thiagocontelli.notes.databinding.FragmentAddNoteBinding
+import com.thiagocontelli.notes.databinding.FragmentNoteBinding
 
-class AddNoteFragment : Fragment() {
-    private var _binding: FragmentAddNoteBinding? = null
+class NoteFragment : Fragment() {
+    private var _binding: FragmentNoteBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAddNoteBinding.inflate(inflater, container, false)
+        _binding = FragmentNoteBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

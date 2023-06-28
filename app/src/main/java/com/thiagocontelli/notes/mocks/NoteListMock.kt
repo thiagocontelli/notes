@@ -1,5 +1,6 @@
-package com.thiagocontelli.notes
+package com.thiagocontelli.notes.mocks
 
+import com.thiagocontelli.notes.models.Note
 import java.time.LocalDateTime
 
 val noteListMock = listOf<Note>(

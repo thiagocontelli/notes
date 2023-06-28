@@ -1,9 +1,10 @@
-package com.thiagocontelli.notes
+package com.thiagocontelli.notes.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.thiagocontelli.notes.models.Note
 import com.thiagocontelli.notes.databinding.NoteCardBinding
 
 class NotesAdapter : Adapter<NotesAdapter.NotesViewHolder>() {

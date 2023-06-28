@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.thiagocontelli.notes.HomeFragment"
+        android:name="com.thiagocontelli.notes.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/addNoteFragment"
-        android:name="com.thiagocontelli.notes.AddNoteFragment"
+        android:name="com.thiagocontelli.notes.fragments.AddNoteFragment"
         android:label="fragment_add_note"
         tools:layout="@layout/fragment_add_note" />
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.thiagocontelli.notes.NoteFragment"
+        android:name="com.thiagocontelli.notes.fragments.NoteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" />
 </navigation>

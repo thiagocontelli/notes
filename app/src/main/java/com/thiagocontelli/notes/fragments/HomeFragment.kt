@@ -1,4 +1,4 @@
-package com.thiagocontelli.notes
+package com.thiagocontelli.notes.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.thiagocontelli.notes.adapters.NotesAdapter
 import com.thiagocontelli.notes.databinding.FragmentHomeBinding
+import com.thiagocontelli.notes.mocks.noteListMock
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null

@@ -1,4 +1,4 @@
-package com.thiagocontelli.notes
+package com.thiagocontelli.notes.models
 
 import java.time.LocalDateTime
 
