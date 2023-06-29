@@ -15,6 +15,8 @@ import com.thiagocontelli.notes.models.Note
 import com.thiagocontelli.notes.viewmodels.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 @AndroidEntryPoint
 class NoteFragment : Fragment() {
@@ -39,7 +41,11 @@ class NoteFragment : Fragment() {
         val content = arguments?.getString("content") ?: ""
 
         binding.topAppBar.title = title
-        binding.topAppBar.subtitle = createdAt
+        binding.topAppBar.subtitle = LocalDateTime.parse(createdAt).format(
+            DateTimeFormatter.ofLocalizedDateTime(
+                FormatStyle.SHORT
+            )
+        )
         binding.contentTextView.text = content
 
         binding.topAppBar.setNavigationOnClickListener {
