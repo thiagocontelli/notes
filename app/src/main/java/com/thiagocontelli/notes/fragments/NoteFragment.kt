@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -60,6 +61,20 @@ class NoteFragment : Fragment() {
                                 }
                             }.show()
                     }
+                    true
+                }
+
+                R.id.edit_note -> {
+                    val bundle = bundleOf(
+                        "type" to "edit",
+                        "title" to title,
+                        "content" to content,
+                        "id" to id,
+                        "createdAt" to createdAt
+                    )
+
+                    findNavController().navigate(R.id.action_noteFragment_to_addNoteFragment, bundle)
+
                     true
                 }
 

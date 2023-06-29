@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.thiagocontelli.notes.models.Note
 
 @Dao
@@ -17,4 +18,7 @@ interface NoteDao {
 
     @Query("SELECT * FROM notes")
     suspend fun listAll(): List<Note>
+
+    @Update
+    suspend fun update(note: Note)
 }
