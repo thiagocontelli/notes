@@ -8,4 +8,6 @@
     <string name="delete_note">Delete Note</string>
     <string name="edit_note">Edit Note</string>
     <string name="add_new_note">Add new note</string>
+    <string name="you_don_t_have_any_note">You don\'t have any note</string>
+    <string name="the_notes_you_create_will_appear_here">The notes you create will appear here.</string>
 </resources>

@@ -43,7 +43,12 @@ class HomeFragment : Fragment() {
         prepareNotesRecyclerView()
 
         viewModel.getAllNotes() { notes ->
-            notesAdapter.setNotes(notes)
+            if (notes.isNotEmpty()) {
+                binding.notesRv.visibility = View.VISIBLE
+                notesAdapter.setNotes(notes)
+            } else {
+                binding.emptyListMsg.visibility = View.VISIBLE
+            }
         }
 
         onClickNoteCard()
