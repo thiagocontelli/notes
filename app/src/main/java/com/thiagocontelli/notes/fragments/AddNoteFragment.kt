@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.thiagocontelli.notes.R
 import com.thiagocontelli.notes.databinding.FragmentAddNoteBinding
 import com.thiagocontelli.notes.viewmodels.AddNoteViewModel
@@ -46,17 +47,26 @@ class AddNoteFragment : Fragment() {
 
         binding.addButton.setOnClickListener {
             if (type == "add") {
-                viewModel.addNote(
-                    binding.titleTextInput.text.toString(), binding.contentTextInput.text.toString()
-                ) { findNavController().popBackStack() }
+                viewModel.addNote(binding.titleTextInput.text.toString(),
+                    binding.contentTextInput.text.toString(),
+                    { onError() }) { findNavController().popBackStack() }
             } else {
-                viewModel.editNote(
-                    id,
+                viewModel.editNote(id,
                     binding.titleTextInput.text.toString(),
                     binding.contentTextInput.text.toString(),
-                    createdAt
-                ) { findNavController().navigate(R.id.action_addNoteFragment_to_homeFragment) }
+                    createdAt,
+                    { onError() }) { findNavController().navigate(R.id.action_addNoteFragment_to_homeFragment) }
             }
+        }
+    }
+
+    private fun onError() {
+        context?.let {
+            MaterialAlertDialogBuilder(it).setTitle(getString(R.string.error_incomplete_information)).setMessage(
+                getString(R.string.please_fill_all_required_fields_thank_you)
+            ).setPositiveButton("Ok") { dialog, _ ->
+                dialog.dismiss()
+            }.show()
         }
     }
 }

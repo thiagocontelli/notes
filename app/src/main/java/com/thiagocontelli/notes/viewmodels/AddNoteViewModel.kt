@@ -11,7 +11,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddNoteViewModel @Inject constructor(private val noteDao: NoteDao) : ViewModel() {
-    fun addNote(title: String, content: String, onSuccess: () -> Unit) {
+    fun addNote(title: String, content: String, onError: () -> Unit,onSuccess: () -> Unit) {
+        if (title.trim().isEmpty() || content.trim().isEmpty()) {
+            onError()
+            return
+        }
+
         val note = Note(title = title, content = content)
 
         viewModelScope.launch {
@@ -20,7 +25,12 @@ class AddNoteViewModel @Inject constructor(private val noteDao: NoteDao) : ViewM
         }
     }
 
-    fun editNote(id: Int, title: String, content: String, createdAt: String, onSuccess: () -> Unit) {
+    fun editNote(id: Int, title: String, content: String, createdAt: String, onError: () -> Unit, onSuccess: () -> Unit) {
+        if (title.trim().isEmpty() || content.trim().isEmpty()) {
+            onError()
+            return
+        }
+
         val note = Note(id, title, content, LocalDateTime.parse(createdAt))
 
         viewModelScope.launch {

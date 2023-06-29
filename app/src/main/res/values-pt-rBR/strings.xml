@@ -13,4 +13,6 @@
     <string name="are_you_sure_you_want_to_delete_this_note_this_action_cannot_be_undone">Você tem certeza que deseja deletar essa nota? Essa ação não poderá ser desfeita.</string>
     <string name="cancel">Cancelar</string>
     <string name="delete">Deletar</string>
+    <string name="error_incomplete_information">Erro: Informações incompletas</string>
+    <string name="please_fill_all_required_fields_thank_you">Por favor, preencha todos os campos.</string>
 </resources>
