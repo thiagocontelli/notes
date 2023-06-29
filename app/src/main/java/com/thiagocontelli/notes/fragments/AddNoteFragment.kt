@@ -35,8 +35,8 @@ class AddNoteFragment : Fragment() {
         val id = arguments?.getInt("id") ?: 0
         val createdAt = arguments?.getString("createdAt") ?: ""
 
-        binding.topAppBar.title = if (type == "add") "New Note" else "Edit Note"
-        binding.addButton.text = if (type == "add") "Add" else "Edit"
+        binding.topAppBar.title = if (type == "add") getString(R.string.new_note) else getString(R.string.edit_note)
+        binding.addButton.text = if (type == "add") getString(R.string.add) else getString(R.string.edit)
         binding.titleTextInput.setText(title)
         binding.contentTextInput.setText(content)
 

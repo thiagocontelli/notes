@@ -56,10 +56,11 @@ class NoteFragment : Fragment() {
             when (it.itemId) {
                 R.id.delete_note -> {
                     context?.let { ctx ->
-                        MaterialAlertDialogBuilder(ctx).setTitle("Delete Note").setMessage("Are you sure you want to delete this note? This action cannot be undone.")
-                            .setNegativeButton("Cancel") { dialog, _ ->
+                        MaterialAlertDialogBuilder(ctx).setTitle(getString(R.string.delete_note)).setMessage(getString(
+                                                    R.string.are_you_sure_you_want_to_delete_this_note_this_action_cannot_be_undone))
+                            .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                                 dialog.cancel()
-                            }.setPositiveButton("Delete") { _, _ ->
+                            }.setPositiveButton(getString(R.string.delete)) { _, _ ->
                                 viewModel.deleteNote(
                                     Note(id, title, content, LocalDateTime.parse(createdAt))
                                 ) {

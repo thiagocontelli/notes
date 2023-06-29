@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title">Título</string>
+    <string name="content">Conteúdo</string>
+    <string name="add">Adicionar</string>
+    <string name="delete_note">Deletar Nota</string>
+    <string name="edit_note">Editar Nota</string>
+    <string name="add_new_note">Adicionar nova nota</string>
+    <string name="you_don_t_have_any_note">Você não tem nenhuma nota</string>
+    <string name="the_notes_you_create_will_appear_here">As notas que você criar irão aparecer aqui.</string>
+    <string name="new_note">Nova Nota</string>
+    <string name="edit">Editar</string>
+    <string name="are_you_sure_you_want_to_delete_this_note_this_action_cannot_be_undone">Você tem certeza que deseja deletar essa nota? Essa ação não poderá ser desfeita.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Deletar</string>
+</resources>
